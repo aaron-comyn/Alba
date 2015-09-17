@@ -44,7 +44,14 @@
   rdfs:domain :Organization ;
   rdfs:label "Name"^^xsd:string ;
   rdfs:range xsd:string ;
-  skos:definition "The name of the organization (Note: ISO11179 defines this as a 'sign' type, not string)"^^xsd:string ;
+  skos:definition "The full name of the organization (Note: ISO11179 defines this as a 'sign' type, not string)"^^xsd:string ;
+.
+:shortName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Organization ;
+  rdfs:label "Name"^^xsd:string ;
+  rdfs:range xsd:string ;
+  skos:definition "The short name of the organization. Used for identifiers."^^xsd:string ;
 .
 :oganizationIdentifier
   rdf:type owl:DatatypeProperty ;
@@ -66,4 +73,9 @@
   rdfs:label "OPI Source"^^xsd:string ;
   rdfs:range xsd:string ;
   skos:definition "???"^^xsd:string ;
+.
+:registrationAuthorityNamespaceRelationship
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RegistrationAuthorityIdentifier ;
+  rdfs:range :Organization ;
 .

@@ -62,12 +62,11 @@
   rdfs:range :ScopedIdentifier ;
   skos:definition "Identifies the set of Scope_Identifiers for the Identified_Item that defines an identifier within a specific namespace"^^xsd:string ;
 .
-:namingAuthority
-  rdf:type owl:DatatypeProperty ;
+:namingAuthorityRelationship
+  rdf:type owl:ObjectProperty ;
   rdfs:domain :Namespace ;
-  rdfs:label "Naming Authority"^^xsd:string ;
+  rdfs:label "Naming Authority Relationship"^^xsd:string ;
   rdfs:range ISO11179Basic:Organization ;
-  skos:definition "Organization that has the authroity for naming in the namespace"^^xsd:string ;
 .
 :scopeRelationship
   rdf:type owl:ObjectProperty ;
@@ -81,4 +80,12 @@
   rdfs:label "version"^^xsd:string ;
   rdfs:range xsd:string ;
   skos:definition "Unique version identifier of the ScopedIdentifier which identifies an IdentifiedItem"^^xsd:string ;
+.
+<http://www.assero.co.uk/MDROrganizations#New>
+  rdf:type ISO11179Basic:Organization ;
+  ISO11179Basic:name "New"^^xsd:string ;
+.
+<http://www.assero.co.uk/MDROrganizations#NewNS>
+  rdf:type :Namespace ;
+  :namingAuthorityRelationship <http://www.assero.co.uk/MDROrganizations#New> ;
 .
