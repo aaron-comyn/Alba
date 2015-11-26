@@ -34,14 +34,14 @@
   rdfs:subClassOf owl:Thing ;
   skos:definition "An identifier within a particular scope"^^xsd:string ;
 .
-:containedIdentifierRelationship
+:isScopeOf
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Namespace ;
   rdfs:label "Contained Identifier Relationship"^^xsd:string ;
   rdfs:range :ScopedIdentifier ;
-  owl:inverseOf :scopeRelationship ;
+  owl:inverseOf :hasScope ;
 .
-:identifiedItemRelationship
+:identifies
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ScopedIdentifier ;
   rdfs:label "Identified Item Relationship"^^xsd:string ;
@@ -55,20 +55,20 @@
   rdfs:range xsd:string ;
   skos:definition "String used to unambiguously denote an IdentifiedItem within the scope of a specified Namespace."^^xsd:string ;
 .
-:identifierRelationship
+:hasIdentifier
   rdf:type owl:ObjectProperty ;
   rdfs:domain ISO11179Types:IdentifiedItem ;
   rdfs:label "Identifer Relationship"^^xsd:string ;
   rdfs:range :ScopedIdentifier ;
   skos:definition "Identifies the set of Scope_Identifiers for the Identified_Item that defines an identifier within a specific namespace"^^xsd:string ;
 .
-:namingAuthorityRelationship
+:ofOrganization
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Namespace ;
   rdfs:label "Naming Authority Relationship"^^xsd:string ;
   rdfs:range ISO11179Basic:Organization ;
 .
-:scopeRelationship
+:hasScope
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ScopedIdentifier ;
   rdfs:label "Scope Relationship"^^xsd:string ;
@@ -78,7 +78,14 @@
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :ScopedIdentifier ;
   rdfs:label "version"^^xsd:string ;
+  rdfs:range xsd:positiveInteger ;
+  skos:definition "Unique version identifier of the ScopedIdentifier which identifies an IdentifiedItem. Used by the repository to manage versions"^^xsd:string ;
+.
+:versionLabel
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :ScopedIdentifier ;
+  rdfs:label "version label"^^xsd:string ;
   rdfs:range xsd:string ;
-  skos:definition "Unique version identifier of the ScopedIdentifier which identifies an IdentifiedItem"^^xsd:string ;
+  skos:definition "Human readable version label usually set by external organizations."^^xsd:string ;
 .
 
